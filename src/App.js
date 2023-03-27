@@ -7,15 +7,15 @@ export default function Game() {
   const [firstCard, setFirstCard] = useState(null);
   const [secondCard, setSecondCard] = useState(null);
 
-  const status = ""
+  let status = ""
 
   function handlePlay(card) {
-    if (numChoices == 0){
+    if (numChoices === 0){
       setNumChoices(numChoices + 1);//we made one choice
       setFirstCard(card);
       console.log(card)
     } 
-    else if (numChoices == 1) {//we are making our second choice
+    else if (numChoices === 1) {//we are making our second choice
       setNumChoices(numChoices + 1)
       setSecondCard(card);
       checkMatch();
@@ -24,16 +24,19 @@ export default function Game() {
       console.log(card);
       //check if match
     }
-    if (numChoices == 2) {
+    if (numChoices === 2) {
       checkMatch()
       setNumChoices(0)
     }
+    if (checkMatch(firstCard,secondCard)) {
+      status = "Match!"
+    }
   }
-  
-  
-
   return (
     <div className='game'>
+      <div>
+      <Start />
+      </div>
       <div className='game-board'>
         <Board numChoices={numChoices} onPlay={handlePlay}/>
       </div>
@@ -43,6 +46,10 @@ export default function Game() {
       </div>
     </div>
   );
+}
+
+function Start() {
+  return (<button className="start-button">Start New Game</button>)
 }
 
 function Board({ numChoices, onPlay }) {
@@ -101,7 +108,6 @@ function Board({ numChoices, onPlay }) {
   }
   return (
     <>
-    <button className="start-button">Start New Game</button>
     <div className="title">Memory Game</div>
     <div className="status">game status: {status} </div>
     <div className="board-row">
@@ -117,10 +123,10 @@ function Board({ numChoices, onPlay }) {
       <Card value={cards[7].backImage} onCardClick={() => handleClick(7)} />
     </div>
     <div className="board-row">
-      <Card value={cards[8].backImage} onCardClick={() => handleClick(8)} choice1={choice1} choice2={choice2} />
-      <Card value={cards[9].backImage} onCardClick={() => handleClick(9)} choice1={choice1} choice2={choice2} />
-      <Card value={cards[10].backImage} onCardClick={() => handleClick(10)} choice1={choice1} choice2={choice2} />
-      <Card value={cards[11].backImage} onCardClick={() => handleClick(11)} choice1={choice1} choice2={choice2} />
+      <Card value={cards[8].backImage} onCardClick={() => handleClick(8)} />
+      <Card value={cards[9].backImage} onCardClick={() => handleClick(9)} />
+      <Card value={cards[10].backImage} onCardClick={() => handleClick(10)} />
+      <Card value={cards[11].backImage} onCardClick={() => handleClick(11)} />
     </div>
     </>
   );
@@ -140,5 +146,5 @@ function calculateWinner(cards) {
 }
 
 function checkMatch(card1,card2) {
-  return (card1 == card2)
+  return (card1 === card2)
 }
