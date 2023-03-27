@@ -4,7 +4,7 @@ function Card({ value , onCardClick , choice1, choice2}) {
   return <button className="card" onClick={onCardClick}>{value}</button>
 }
 
-export default function Board() {
+function Board() {
   //todo: create a function to shuffle the board and start new game
   const cardsData = [
     { id: 1, frontImage: 'card1', backImage: "--", isFacedDown: true, isMatched: false},
@@ -32,7 +32,7 @@ export default function Board() {
     //           2. we are picking the first card
 //only does function if we have no cards picked yet, and the card picked is faced down and not matched
     if (choice1){
-      if (cardClicked.isFacedDown && cardClicked.isMatched == false){
+      if (cardClicked.isFacedDown && cardClicked.isMatched === false){
         [cardClicked.backImage, cardClicked.frontImage] = [cardClicked.frontImage, cardClicked.backImage]
         cardClicked.isFacedDown = false
         setChoice2(cardClicked.id)
@@ -41,7 +41,7 @@ export default function Board() {
     }
     if (!choice1){  //if we dont have choice 1, pick choice1 and set choice 1 only if the card is faced down and not matched
       console.log(cardClicked.id)
-      if (cardClicked.isFacedDown && cardClicked.isMatched == false) {
+      if (cardClicked.isFacedDown && cardClicked.isMatched === false) {
         [cardClicked.backImage, cardClicked.frontImage] = [cardClicked.frontImage, cardClicked.backImage]
         cardClicked.isFacedDown = false
         setChoice1(cardClicked.id)
@@ -78,10 +78,23 @@ export default function Board() {
   );
 }
 
+export default function Game() {
+  return (
+    <div className='game'>
+      <div className='game-board'>
+        <Board />
+      </div>
+      <div className='game-info'>
+        <ol>{/* TODO */}</ol>
+      </div>
+    </div>
+  );
+}
+
 
 function calculateWinner(cards) {
   for (let i = 0; i < cards.length; i++){
-    if (cards.isMatched == false) {
+    if (cards.isMatched === false) {
       return false; //game is not over yet because we have a card that isn't matched
     }
   }
