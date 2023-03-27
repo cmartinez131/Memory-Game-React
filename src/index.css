@@ -56,7 +56,13 @@ body {
 
 .status {
   margin-bottom: 10px;
+  margin-left: 15px;
 }
+
+.title {
+  margin-left: 15px;
+}
+
 .game {
   display: flex;
   flex-direction: row;

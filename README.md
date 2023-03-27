@@ -1,6 +1,27 @@
-# Getting Started with Create React App
+Memory Game using React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The link to the deployed website using GitHub Pages: https://cmartinez131.github.io/Memory-Game-React/
+
+Used Git Feature Branch Workflow https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
+
+
+Requiremen:
+At least 12 cards are displayed initially face down. Maximum of 30 cards. 
+There should be a theme to the cards and not just random images.
+The cards should all be the same dimension. (grid should not look messy)
+Should have at least 3 rows of cards.
+There cannot be duplicate paired cards. (For example, you cannot have 4 cards that are ace of spades)
+These cards should be shuffled upon pressing a button called “New Game”
+User should be able to reset the game at any point with the "New Game" button
+The user can only select two cards per turn.
+If those selections match, those cards stay upright (can also have them become transparent or other styling choices indicating they are matched)
+If the selections do not match, there should be a delay and then the cards should turn face down again
+While the cards are being compared, other card selections should be disabled
+Should be deployed on Github Pages.
+No design frameworks allowed! Includes but is not limited to Bootstrap, Material-UI, Foundation, etc. Please email me if you are concerned that your approach may break this rule)
+Must use useState hook for handling the state of the game.
+Should contain a live counter for how many turns made so far.
+Announce when the game is completed.
 
 ## Available Scripts
 
