@@ -23,12 +23,23 @@ export default function Board() {
   const [choice1, setChoice1] = useState(false)
   const [choice2, setChoice2] = useState(false)
 
-  
-  
   function handleClick(i) {
-    
-  }
+    const nextCards = cards.slice();
+    if (nextCards[i].isFacedDown && nextCards[i].isMatched === false) {
+      [nextCards[i].backImage, nextCards[i].frontImage] = [nextCards[i].frontImage, nextCards[i].backImage]
+      nextCards[i].isFacedDown = false
+    }
+     // cards start face down
+     //can only flip cards if it is faced down
+     //flip the card on its back
+     // todo: logic for matching cards
 
+     //see how many choices we have
+     //if we have no choices yet, the user picks a card, update choice 1
+     //if we have one choice, the user picks a card, updates choice 2
+     //if choice1 and choice2 match, set both cards isMatched value to True
+    setCards(nextCards);
+  }
   return (
     <>
     <div className="title">Memory Game</div>
