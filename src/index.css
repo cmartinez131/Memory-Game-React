@@ -43,6 +43,15 @@ body {
   width: 120px;
 }
 
+.start-button {
+  background: lightgrey;
+  
+  height: 60px;
+  
+  
+  width: 60px;
+}
+
 .start {
   background: lightgray;
   border: 1px solid #999;
