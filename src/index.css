@@ -29,15 +29,12 @@ body {
 }
 
 .card {
-  background: #fff;
+  background: lightblue;
   border: 1px solid #999;
-  float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
   height: 150px;
-  margin-right: -1px;
-  margin-top: -1px;
   padding: 0;
   text-align: center;
   width: 120px;
@@ -45,24 +42,11 @@ body {
 
 .start-button {
   background: lightgrey;
-  
-  height: 60px;
-  
-  
+  font-size: 12px;
+  height: 46px;
   width: 60px;
 }
 
-.start {
-  background: lightgray;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 80px;
-  text-align: center;
-  width: 80px;
-}
 
 .board-row:after {
   clear: both;
