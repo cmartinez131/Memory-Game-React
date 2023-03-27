@@ -23,12 +23,18 @@ export default function Board() {
   const [choice1, setChoice1] = useState(false)
   const [choice2, setChoice2] = useState(false)
 
-  
-  
   function handleClick(i) {
-    
+    const nextCards = cards.slice();
+    if (nextCards[i].isFacedDown || nextCards[i].isFacedDown == false) {
+      [nextCards[i].backImage, nextCards[i].frontImage] = [nextCards[i].frontImage, nextCards[i].backImage]
+      nextCards[i].isFacedDown = false
+      console.log(choice1,choice2)
+    }
+     // cards start face down
+     //flip the card on its back
+     // todo: logic for matching cards
+    setCards(nextCards);
   }
-
   return (
     <>
     <div className="title">Memory Game</div>
