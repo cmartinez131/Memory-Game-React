@@ -1,59 +1,8 @@
 import { useState } from 'react'
 
-export default function Game() {
-  //todo: hold state of game
-  const [numChoices, setNumChoices] = useState(0);
-  const [numTurns, setNumTurns] = useState(0);
-  const [firstCard, setFirstCard] = useState(null);
-  const [secondCard, setSecondCard] = useState(null);
-
-  let status = ""
-
-  function handlePlay(card) {
-    if (numChoices === 0){
-      setNumChoices(numChoices + 1);//we made one choice
-      setFirstCard(card);
-      console.log(card)
-    } 
-    else if (numChoices === 1) {//we are making our second choice
-      setNumChoices(numChoices + 1)
-      setSecondCard(card);
-      checkMatch();
-      setNumChoices(0);
-      setNumTurns(numTurns+1);
-      console.log(card);
-      //check if match
-    }
-    if (numChoices === 2) {
-      checkMatch()
-      setNumChoices(0)
-    }
-    if (checkMatch(firstCard,secondCard)) {
-      status = "Match!"
-    }
-  }
-  return (
-    <div className='game'>
-      <div>
-      <Start />
-      </div>
-      <div className='game-board'>
-        <Board numChoices={numChoices} onPlay={handlePlay}/>
-      </div>
-      <div className='game-info'>
-        <div>{status}</div>
-        <h2>Number of turns: {numTurns}</h2>
-      </div>
-    </div>
-  );
-}
-
-function Start() {
-  return (<button className="start-button">Start New Game</button>)
-}
-
-function Board({ numChoices, onPlay }) {
+export default function Board() {//{ numChoices, onPlay }
   //todo: create a function to shuffle the board and start new game
+
   const cardsData = [
     { id: 1, frontImage: 'card1', backImage: "--", isFacedDown: true, isMatched: false},
     { id: 1, frontImage: 'card1', backImage: "--", isFacedDown: true, isMatched: false},
@@ -72,11 +21,15 @@ function Board({ numChoices, onPlay }) {
   const [choice1, setChoice1] = useState(null)
   const [choice2, setChoice2] = useState(null)
 
+  const [numTurns, setNumTurns] = useState(0);
+
+  function onStartClick() {
+    console.log("new game button Pressed")
+  }
+
   function handleClick(i) {
     const nextCards = cards.slice();
     const cardClicked = nextCards[i]
-    //two cases: 1. we are picking the second card
-    //           2. we are picking the first card
 //only does function if we have no cards picked yet, and the card picked is faced down and not matched
     if (choice1){
       if (cardClicked.isFacedDown && cardClicked.isMatched === false){
@@ -85,7 +38,14 @@ function Board({ numChoices, onPlay }) {
         setChoice2(cardClicked.id)
         console.log(choice1, cardClicked.id)
         setCards(nextCards);  //update the cards to reflect picked card
-        onPlay(cardClicked);
+        setNumTurns(numTurns+1);
+        if (checkMatch(choice1,choice2)) {
+          status = "Match!"
+        }
+
+        //use setTimeout() here
+        setChoice1(null);
+        setChoice2(null);
       }
     }
     if (!choice1){  //if we dont have choice 1, pick choice1 and set choice 1 only if the card is faced down and not matched
@@ -96,7 +56,9 @@ function Board({ numChoices, onPlay }) {
         cardClicked.isFacedDown = false
         setChoice1(cardClicked.id)
         setCards(nextCards);  //update the cards to reflect picked card
-        onPlay(cardClicked);
+        if (checkMatch(choice1,choice2)) {
+          status = "Match!"
+        }
       }
     }
   }
@@ -109,7 +71,7 @@ function Board({ numChoices, onPlay }) {
   return (
     <>
     <div className="title">Memory Game</div>
-    <div className="status">game status: {status} </div>
+    <button className="start-button">Start New Game onClick{onStartClick}</button>
     <div className="board-row">
       <Card value={cards[0].backImage} onCardClick={() => handleClick(0)} />
       <Card value={cards[1].backImage} onCardClick={() => handleClick(1)} />
@@ -128,6 +90,7 @@ function Board({ numChoices, onPlay }) {
       <Card value={cards[10].backImage} onCardClick={() => handleClick(10)} />
       <Card value={cards[11].backImage} onCardClick={() => handleClick(11)} />
     </div>
+    <div className="status">Number of turns: {numTurns} </div>
     </>
   );
 }
