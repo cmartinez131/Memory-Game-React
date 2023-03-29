@@ -2,8 +2,7 @@ import { useState } from 'react'
 
 export default function Board() {//{ numChoices, onPlay }
   //todo: create a function to shuffle the board and start new game
-
-  const cardsData = [
+  let cardsData = [
     { id: 1, frontImage: 'card1', backImage: "--", isFacedDown: true, isMatched: false},
     { id: 1, frontImage: 'card1', backImage: "--", isFacedDown: true, isMatched: false},
     { id: 2, frontImage: 'card2', backImage: "--", isFacedDown: true, isMatched: false},
@@ -17,11 +16,20 @@ export default function Board() {//{ numChoices, onPlay }
     { id: 6, frontImage: 'card6', backImage: "--", isFacedDown: true, isMatched: false},
     { id: 6, frontImage: 'card6', backImage: "--", isFacedDown: true, isMatched: false},
   ]
+  let gameIsOver = false
+  //Array(12).fill(null)
   const [cards, setCards] = useState(cardsData);
+  
   const [choice1, setChoice1] = useState(null)
   const [choice2, setChoice2] = useState(null)
-
   const [numTurns, setNumTurns] = useState(0);
+  //shuffle 
+  
+  
+  function shuffle(cardsArray) {
+    console.log("hi")
+  }
+  
 
   function onStartClick() {
     console.log("new game button Pressed")
@@ -70,8 +78,10 @@ export default function Board() {//{ numChoices, onPlay }
   }
   return (
     <>
-    <div className="title">Memory Game</div>
-    <button className="start-button">Start New Game onClick{onStartClick}</button>
+    <div className="title">Match the Team Logos</div>
+    <div className="start-button">
+      <button onClick={onStartClick}>Start New Game</button>
+    </div>
     <div className="board-row">
       <Card value={cards[0].backImage} onCardClick={() => handleClick(0)} />
       <Card value={cards[1].backImage} onCardClick={() => handleClick(1)} />
@@ -95,8 +105,15 @@ export default function Board() {//{ numChoices, onPlay }
   );
 }
 
-function Card({ value , onCardClick , choice1, choice2}) {
-  return <button className="card" onClick={onCardClick}>{value}</button>
+function Card({ value , onCardClick}) {
+  return (
+      <img 
+        className="card-back" 
+        src={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png"} 
+        onClick={onCardClick}
+      />
+  )
+
 }
 
 function calculateWinner(cards) {

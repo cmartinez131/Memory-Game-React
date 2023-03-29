@@ -1,45 +1,49 @@
-
-
 body {
   font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
   background-image: url('/public/images/stadium.jpg');
   background-size: auto;
-  
-  background-position: center -480px;
+  background-position: center -485px;
   position: absolute;
   top: 40%;
-  left: 50%;
+  left: 47%;
   transform: translate(-50%, -50%);
+  padding-top: 70px;
 }
 
-.card {
-  background: lightblue;
+.card-back {
+  height: 80px;
+  width: 120px;
   border: 1px solid #999;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 150px;
-  padding: 0;
   text-align: center;
+  border-radius: 10%;
+  width: auto;
+  margin-left: 3px;
+}
+
+.card-front {
+  height: 140px;
   width: 120px;
 }
 
 .title {
-  margin-bottom: 10px;
   color:whitesmoke;
   font-size: 30px;
   font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .start-button {
-  background: lightgrey;
-  margin-bottom: 10px;
+  background: whitesmoke;
+  border: 1px solid #999;
+  border-radius: 10%;
+  margin-bottom: 5px;
   font-size: 12px;
   height: 46px;
-  width: 50%; /* set the width of the div */
+  width: 110px; /* set the width of the div */
   height: 50%;
+  margin-left: 245px
 }
 
 .status {
@@ -47,18 +51,5 @@ body {
   color:whitesmoke;
   font-size: 30px;
   font-weight: bold;
-}
-
-.title {
-  margin-left: 15px;
-}
-
-.game {
-  display: flex;
-  flex-direction: row;
-}
-
-.image {
-  height: 140px;
-  width: 120px;
+  text-align: center;
 }
