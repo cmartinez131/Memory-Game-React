@@ -113,4 +113,3 @@ function Card({ frontImage, backImage, isFacedDown, onCardClick }) {
 }
 
 
-
