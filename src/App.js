@@ -1,6 +1,5 @@
+import React from 'react';
 import { useState } from 'react'
-
-
 
 export default function Board() {//{ numChoices, onPlay }
   //todo: create a function to shuffle the board and start new game
