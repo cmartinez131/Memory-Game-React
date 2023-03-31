@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  background-image: url('/images/stadium.jpg');
+  background-image: url('https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/stadium.jpg?raw=true');
   background-size: auto;
   background-position: center -485px;
   position: absolute;

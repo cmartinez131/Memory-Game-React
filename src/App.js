@@ -4,18 +4,18 @@ import { useState } from 'react'
 export default function Board() {//{ numChoices, onPlay }
   //todo: create a function to shuffle the board and start new game
   let cardsData = [
-    { frontImage: '/images/cubs.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/cubs.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/giants.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/giants.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/dodgers.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/dodgers.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/mets.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/mets.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/yankees.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/yankees.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/redsox.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
-    { frontImage: '/images/redsox.png', backImage: '/images/mlb.png', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/cubs.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/cubs.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/giants.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/giants.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/dodgers.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/dodgers.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mets.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mets.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/yankees.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/yankees.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/redsox.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
+    { frontImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/redsox.png?raw=true', backImage: 'https://github.com/cmartinez131/Memory-Game-React/blob/main/public/images/mlb.png?raw=true', isFacedDown: true, isMatched: false},
   ]
   let gameFinished = false;
   const [cards, setCards] = useState(cardsData);
